@@ -1,4 +1,4 @@
-const errorHandler = (err, req, res, next) => {
+const errorHandler = (err, req, res, next) => { // TODO nota: express lo reconoce como error handler si tiene los 4: err, req, res, next
   // Log error for debugging
   console.error('Error caught by global handler:');
   console.error(`Message: ${err.message}`);
