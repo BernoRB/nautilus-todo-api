@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import errorHandler from './middlewares/errorHandler.middleware.js';
 // import authRoutes from './routes/auth.routes.js'; TO DO
 // import taskRoutes from './routes/task.routes.js'; TO DO
 const app = express();
@@ -39,13 +40,6 @@ app.use((req, res) => {
 });
 
 // Global error handler
-app.use((err, req, res, next) => {
-  console.error('Error:', err.message);
-  console.error(err.stack);
-  res.status(err.status || 500).json({
-    success: false,
-    message: err.message || 'Internal server error',
-  });
-});
+app.use(errorHandler);
 
 export default app;
