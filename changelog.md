@@ -8,5 +8,11 @@
 - MongoDB connection
 - Basic middlewares + error handler mw
 - Env variables configuration
+- User model
+- JWT utils for token management
+- JWT auth middleware for protected routes
+- Auth service layer (register, login)
+- Auth controllers with input validation
+- Auth routes (POST /api/auth/register, /api/auth/login)
 
 ## [1.0.0] - Coming soon
