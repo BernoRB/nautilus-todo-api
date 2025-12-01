@@ -3,7 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import errorHandler from './middlewares/errorHandler.middleware.js';
-// import authRoutes from './routes/auth.routes.js'; TO DO
+import authRoutes from './routes/auth.routes.js';
 // import taskRoutes from './routes/task.routes.js'; TO DO
 const app = express();
 
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 })
 
 // API Routes TO DO
-// app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 // app.use('/api/tasks', taskRoutes);
 
 // 404 handler
