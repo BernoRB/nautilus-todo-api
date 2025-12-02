@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const taskSchema = new mongoose.Schema({
   taskNumber: {
     type: Number,
-    required: true
   },
   title: {
     type: String,
