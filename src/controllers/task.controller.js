@@ -1,4 +1,4 @@
-import taskService from "../services/task.service";
+import taskService from "../services/task.service.js";
 
 // Create a new task
 // POST /api/tasks
