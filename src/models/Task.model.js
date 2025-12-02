@@ -51,7 +51,6 @@ taskSchema.pre('save', async function(next) {
     
     this.taskNumber = lastTask ? lastTask.taskNumber + 1 : 1;
   }
-  next();
 });
 
 export default mongoose.model('Task', taskSchema);
