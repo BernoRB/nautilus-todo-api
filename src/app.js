@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import errorHandler from './middlewares/errorHandler.middleware.js';
 import authRoutes from './routes/auth.routes.js';
-// import taskRoutes from './routes/task.routes.js'; TO DO
+import taskRoutes from './routes/task.routes.js';
 const app = express();
 
 // Security middleware
@@ -27,9 +27,9 @@ app.get('/', (req, res) => {
   })
 })
 
-// API Routes TO DO
+// API Routes
 app.use('/api/auth', authRoutes);
-// app.use('/api/tasks', taskRoutes);
+app.use('/api/tasks', taskRoutes);
 
 // 404 handler
 app.use((req, res) => {

@@ -1,7 +1,6 @@
 # Changelog
 
 ## [DEV - Unreleased]
-
 ### 2025-12-01
 - Initial project structure
 - Express server setup
@@ -14,5 +13,11 @@
 - Auth service layer (register, login)
 - Auth controllers with input validation
 - Auth routes (POST /api/auth/register, /api/auth/login)
+
+### 2025-12-02
+- Task model with auto-increment taskNumber per user
+- Task service layer with CRUD operations using taskNumber
+- Task controllers with validation
+- Task routes
 
 ## [1.0.0] - Coming soon
