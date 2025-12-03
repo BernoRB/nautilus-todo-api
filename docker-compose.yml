@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # MongoDB service
+  mongodb:
+    image: mongo:7
+    container_name: nautilus-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: nautilus-todo-api
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - nautilus-network
+
+  # Node.js API service
+  api:
+    build:
+      context: .
+      target: development
+    container_name: nautilus-api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      MONGODB_URI: mongodb://mongodb:27017/nautilus-todo-api
+      JWT_SECRET: your_secret_placeholder
+      JWT_EXPIRE: 24h
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - mongodb
+    networks:
+      - nautilus-network
+    command: npm run dev
+
+# Volumes for data persistence
+volumes:
+  mongodb_data:
+    driver: local
+
+# Network for container communication
+networks:
+  nautilus-network:
+    driver: bridge

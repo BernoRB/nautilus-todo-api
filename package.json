@@ -10,7 +10,12 @@
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage --verbose",
     "test:unit": "cross-env NODE_OPTIONS=--experimental-vm-modules jest tests/unit --verbose",
     "test:integration": "cross-env NODE_OPTIONS=--experimental-vm-modules jest tests/integration --verbose",
-    "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch"
+    "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f api",
+    "docker:restart": "docker-compose restart api"
   },
   "keywords": [
     "nodejs",
