@@ -14,7 +14,7 @@ class TaskService {
   }
 
   // Get all tasks for a specific user. Optional filter by completed status.
-  async getUserTasks(userId, filters ={}) {
+  async getUserTasks(userId, filters = {}) {
     const query = { userId };
 
     // FIlter by completed status if provided
@@ -41,7 +41,7 @@ class TaskService {
 
   // Update a task by taskNumber
   async updateTask(taskNumber, userId, updates) {
-    const task = await Task.findOne( {taskNumber, userId })
+    const task = await Task.findOne({ taskNumber, userId })
 
     if (!task) {
       const error = new Error('Task not found');
@@ -56,7 +56,7 @@ class TaskService {
     return task;
   }
 
-  // Deleta a task by taskNumber
+  // Delete a task by taskNumber
   async deleteTask(taskNumber, userId) {
     const result = await Task.deleteOne({ taskNumber, userId })
   

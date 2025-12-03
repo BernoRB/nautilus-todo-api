@@ -1,11 +1,11 @@
 import express from 'express';
-import { createTask, getTasks, getTask, updateTask, deleteTask,  } from '../controllers/task.controller.js';
+import { createTask, getTasks, getTask, updateTask, deleteTask } from '../controllers/task.controller.js';
 import { createTaskValidation, updateTaskValidation, taskNumberValidation, handleValidationErrors } from '../validators/task.validator.js';
 import { protect } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
-// ALl routes require authentication (middleware protect)
+// All routes require authentication (middleware protect)
 router.use(protect)
 
 /**

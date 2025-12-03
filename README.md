@@ -122,17 +122,6 @@ tests/
 
 All task endpoints require `Authorization: Bearer <token>` header.
 
-## Some technical Decisions
-
-### Service Layer
-Business logic separated from HTTP handling. Controllers stay thin and focused on request/response, while services contain domain logic. This separation improves testability (services can be tested without mocking HTTP) and maintainability (clear responsibilities).
-
-### Task Numbering
-Tasks use auto-incremental `taskNumber` (1, 2, 3...) instead of MongoDB ObjectIds for user-friendly URLs. Each user has independent numbering.
-
-### Docker
-Single command to run the entire stack without installing Node.js or MongoDB locally.
-
 ## Environment Variables
 
 Required variables (see `.env.example`):

@@ -121,17 +121,6 @@ tests/
 
 Todos los endpoints de tasks requieren header `Authorization: Bearer <token>`.
 
-## Algunas Decisiones Técnicas
-
-### Capa de Servicios
-Lógica de negocio separada del manejo HTTP. Los controllers se mantienen enfocados en request/response, mientras los services contienen lógica de dominio. Esta separación mejora la testabilidad (los services se pueden testear sin mockear HTTP) y la mantenibilidad (responsabilidades claras).
-
-### Numeración de Tareas
-Las tareas usan `taskNumber` auto-incremental (1, 2, 3...) en lugar de ObjectIds de MongoDB para URLs amigables. Cada usuario tiene numeración independiente.
-
-### Docker
-Un solo comando para ejecutar todo el stack sin instalar Node.js o MongoDB localmente.
-
 ## Variables de Entorno
 
 Variables requeridas (ver `.env.example`):

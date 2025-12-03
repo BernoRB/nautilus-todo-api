@@ -1,4 +1,4 @@
-const errorHandler = (err, req, res, next) => { // TODO nota: express lo reconoce como error handler si tiene los 4: err, req, res, next
+const errorHandler = (err, req, res, next) => {
   // Log error for debugging
   console.error('Error caught by global handler:');
   console.error(`Message: ${err.message}`);
@@ -49,11 +49,17 @@ const errorHandler = (err, req, res, next) => { // TODO nota: express lo reconoc
   const statusCode = err.status || err.statusCode || 500;
   const message = err.message || 'Internal server error';
   
-  res.status(statusCode).json({
+  const response = {
     success: false,
-    message,
-    stack: err.stack,
-  });
+    message
+  };
+  
+  // Only show stack trace in development
+  if (process.env.NODE_ENV === 'development') {
+    response.stack = err.stack;
+  }
+  
+  res.status(statusCode).json(response);
 };
 
 export default errorHandler;

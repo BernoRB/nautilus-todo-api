@@ -28,7 +28,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.get('/', (req, res) => {
   res.json({
     success: true,
-    message: 'Nautilus TODO APi running',
+    message: 'Nautilus TODO API running',
     timestamp: new Date().toISOString(),
   })
 })

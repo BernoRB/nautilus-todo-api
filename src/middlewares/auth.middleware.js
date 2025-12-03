@@ -1,9 +1,7 @@
 import { verifyToken } from '../utils/jwt.util.js';
 import User from '../models/User.model.js';
 
-/**
- * Protect routes that require authentication
- */
+// Protect routes that require authentication
 export const protect = async (req, res, next) => {
   try {
     // Extract token from header
