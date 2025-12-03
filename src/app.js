@@ -3,8 +3,11 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import errorHandler from './middlewares/errorHandler.middleware.js';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from './config/swagger.js';
 import authRoutes from './routes/auth.routes.js';
 import taskRoutes from './routes/task.routes.js';
+
 const app = express();
 
 // Security middleware
@@ -17,6 +20,9 @@ app.use(morgan('dev'));
 // Body parsing middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
+
+// Swagger documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Health check
 app.get('/', (req, res) => {

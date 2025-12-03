@@ -13,6 +13,8 @@
 - Auth service layer (register, login)
 - Auth controllers with input validation
 - Auth routes (POST /api/auth/register, /api/auth/login)
+- Docker config
+- Swagger documentation
 
 ### 2025-12-02
 - Task model with auto-increment taskNumber per user
