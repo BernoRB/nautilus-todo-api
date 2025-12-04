@@ -37,7 +37,7 @@ const taskSchema = new mongoose.Schema({
 // Unique compound index: each user has its own sequence
 taskSchema.index({ userId: 1, taskNumber: 1 }, { unique: true });
 
-// Index for listing tasks by user
+// Index for listing tasks by user // unused right now, could delete
 taskSchema.index({ userId: 1, createdAt: -1 });
 
 // Auto-increment taskNumber before save (only for new tasks)
